@@ -2,9 +2,8 @@ name: ejemplos
 description: Ejemplos de dart
 version: 1.0.0
 
-
 environment:
   sdk: '>=2.12.0 <3.0.0'
-dependencies: 
+dependencies:
   http: ^0.13.5
   
