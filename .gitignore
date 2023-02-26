@@ -1,0 +1,6 @@
+.dart_tool
+android
+ios
+build
+.DS_Store
+pubspec.lock
