@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:todo/example/container.dart';
 
 void main() {
   runApp(const MyApp());
@@ -20,12 +21,8 @@ class MyApp extends StatelessWidget {
           title: const Text("Mis Tareas"),
         ),
         body: Center(
-          child: Container(
-            margin: const EdgeInsets.all(10.0),
-            color: Colors.amber[600],
-            width: 48.0,
-            height: 48.0,
-          ),
+          // Contenedor con color de fondo y un borde
+          child: Containers(),
         ),
       ),
     );
