@@ -7,10 +7,9 @@ class GradientBack extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return Container(
       height: 250,
-      alignment: const Alignment(0, 0),
+      alignment: const Alignment(-0.9, -0.6),
       decoration: const BoxDecoration(
         // Gradient (Efecto del fondo)
         gradient: LinearGradient(
@@ -26,7 +25,7 @@ class GradientBack extends StatelessWidget {
             // p2xc2,p2yc2
             end: FractionalOffset(1.0, 0.6),
             // Orientación del gradiente
-            stops: [1, 1],
+            stops: [0.0, 0.6],
             // Color de relleno mientras no carga el gradiente
             tileMode: TileMode.clamp),
       ),

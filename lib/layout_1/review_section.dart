@@ -44,19 +44,19 @@ class ReviewSection extends StatelessWidget {
     );
     final photo = Container(
       margin: const EdgeInsets.only(top: 20, left: 20),
-      // width: 80,
-      // height: 80,
-      // decoration: BoxDecoration(
-      //   shape: BoxShape.circle,
-      //   image: DecorationImage(
-      //     image: AssetImage(pathImage),
-      //     fit: BoxFit.cover,
-      //   ),
-      child: Image.asset(
-        pathImage,
-        width: 40,
-        height: 30,
-        alignment: Alignment.topLeft,
+      width: 80,
+      height: 80,
+      decoration: BoxDecoration(
+        shape: BoxShape.circle,
+        image: DecorationImage(
+          image: AssetImage(pathImage),
+          fit: BoxFit.cover,
+        ),
+        // child: Image.asset(
+        //   pathImage,
+        //   width: 40,
+        //   height: 30,
+        //   alignment: Alignment.topLeft,
       ),
     );
 

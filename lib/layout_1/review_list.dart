@@ -13,6 +13,12 @@ class ReviewList extends StatelessWidget {
           "assets/images/agua.jpg", "Santiago 2", "Aguacates2", "comment2"),
       ReviewSection(
           "assets/images/agua.jpg", "Santiago 3", "Aguacates3", "comment3"),
+      ReviewSection(
+          "assets/images/agua.jpg", "Santiago 3", "Aguacates3", "comment3"),
+      ReviewSection(
+          "assets/images/agua.jpg", "Santiago 3", "Aguacates3", "comment3"),
+      ReviewSection(
+          "assets/images/agua.jpg", "Santiago 3", "Aguacates3", "comment3"),
     ]);
   }
 }
