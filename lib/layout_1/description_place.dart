@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'button_custom.dart';
 
 class DescriptionPlace extends StatelessWidget {
   String namePlace;
@@ -67,7 +68,7 @@ class DescriptionPlace extends StatelessWidget {
     );
 
     return Column(
-      children: <Widget>[title_stars, description],
+      children: <Widget>[title_stars, description, CustomButton("Test")],
     );
   }
 }
