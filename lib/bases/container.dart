@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 
-class Containers extends StatelessWidget {
-  const Containers({super.key});
-
+class ContainersBase extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
