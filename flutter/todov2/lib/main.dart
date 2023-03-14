@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:todov2/app_ejemplo_1/main_app_ejemplo_1.dart';
 import 'package:todov2/bases/buttons_base.dart';
 import 'package:todov2/bases/columns.dart';
 import 'package:todov2/bases/container.dart';
@@ -25,14 +26,15 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home:
-       Scaffold(
-          appBar: AppBar(
-            title: const Text("To Do"),
-            titleSpacing: 100,
-          ),
-          body:ButtonBase(),
-       )
+      home: MainAppEjemplo1()
+      //  Scaffold(
+      //     appBar: AppBar(
+      //       title: const Text("To Do"),
+      //       titleSpacing: 100,
+      //     ),
+      //     body:ButtonBase(),
+          
+      //  )
     );
   }
 }
