@@ -5,7 +5,7 @@ import 'package:todo/bases/layout_builder.dart';
 import 'package:todo/bases/container.dart';
 import 'package:todo/layout_1/description_place.dart';
 import 'package:todo/layout_1/gradient_back.dart';
-import 'package:todo/layout_1/layout_1.dart';
+import 'package:todo/layout_1/trips.dart';
 import 'package:todo/layout_1/review_list.dart';
 
 void main() {
@@ -23,13 +23,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: Scaffold(
-        // appBar: AppBar(
-        //   title: const Text("Mis Tareas"),
-        // ),
-        // body: ,
-        body: Layout1(),
-      ),
+      home: Trips(),
     );
   }
 }
