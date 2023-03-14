@@ -3,6 +3,9 @@ import 'package:todo/bases/images_base.dart';
 import 'package:todo/bases/ink_well_base.dart';
 import 'package:todo/bases/layout_builder.dart';
 import 'package:todo/bases/container.dart';
+import 'package:todo/form_1/form.dart';
+import 'package:todo/form_1/form1.dart';
+import 'package:todo/form_claves/form_claves.dart';
 import 'package:todo/layout_1/description_place.dart';
 import 'package:todo/layout_1/gradient_back.dart';
 import 'package:todo/layout_1/trips.dart';
@@ -23,7 +26,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: Trips(),
+      home: FormClave(),
     );
   }
 }
