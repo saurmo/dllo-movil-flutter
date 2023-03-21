@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:todov2/app_ejemplo_1/pages/home.dart';
 import 'package:todov2/app_ejemplo_1/pages/profile.dart';
+import 'package:todov2/app_ejemplo_1/pages/list_users.dart';
 
 class MainAppEjemplo1 extends StatefulWidget {
   @override
@@ -10,11 +11,10 @@ class MainAppEjemplo1 extends StatefulWidget {
 }
 
 class _MainAppEjemplo1 extends State<MainAppEjemplo1> {
-  final List<Widget> pages = [Home(), Profile()];
+  final List<Widget> pages = [Home(), Profile(), ListUsers()];
   int currentlyIndex = 0;
 
   void changePage(int index) {
-
     setState(() {
       currentlyIndex = index;
     });
@@ -31,8 +31,8 @@ class _MainAppEjemplo1 extends State<MainAppEjemplo1> {
         data: Theme.of(context).copyWith(),
         child: BottomNavigationBar(
           onTap: changePage,
-          currentIndex:currentlyIndex,
-          items: [
+          currentIndex: currentlyIndex,
+          items: const [
             BottomNavigationBarItem(
               label: "Inicio",
               icon: Icon(Icons.home),
@@ -40,6 +40,10 @@ class _MainAppEjemplo1 extends State<MainAppEjemplo1> {
             BottomNavigationBarItem(
               label: "Perfil",
               icon: Icon(Icons.person),
+            ),
+            BottomNavigationBarItem(
+              label: "Usuarios",
+              icon: Icon(Icons.people),
             )
           ],
         ),

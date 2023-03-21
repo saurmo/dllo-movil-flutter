@@ -11,6 +11,7 @@ import 'package:todov2/ejercicios/Ajedrez.dart';
 import 'package:todov2/ejercicios/BodySection.dart';
 import 'package:todov2/ejercicios/ImageSection.dart';
 import 'package:todov2/ejercicios/TitleSection.dart';
+import 'package:todov2/app_ejemplo_1/pages/detail_user.dart';
 
 void main() {
   runApp(const MyApp());
@@ -26,14 +27,15 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MainAppEjemplo1()
+      home: MainAppEjemplo1(),
+      routes: {'detail_user': (context) => DetailUser()},
       //  Scaffold(
       //     appBar: AppBar(
       //       title: const Text("To Do"),
       //       titleSpacing: 100,
       //     ),
       //     body:ButtonBase(),
-          
+
       //  )
     );
   }
