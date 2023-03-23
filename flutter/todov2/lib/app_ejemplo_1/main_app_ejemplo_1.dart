@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:todov2/app_ejemplo_1/pages/home.dart';
-import 'package:todov2/app_ejemplo_1/pages/profile.dart';
+import 'package:todov2/app_ejemplo_1/pages/apis_free.dart';
 import 'package:todov2/app_ejemplo_1/pages/list_users.dart';
 
 class MainAppEjemplo1 extends StatefulWidget {
@@ -11,7 +11,7 @@ class MainAppEjemplo1 extends StatefulWidget {
 }
 
 class _MainAppEjemplo1 extends State<MainAppEjemplo1> {
-  final List<Widget> pages = [Home(), Profile(), ListUsers()];
+  final List<Widget> pages = [Home(), ApisFree(), ListUsers()];
   int currentlyIndex = 0;
 
   void changePage(int index) {
@@ -38,7 +38,7 @@ class _MainAppEjemplo1 extends State<MainAppEjemplo1> {
               icon: Icon(Icons.home),
             ),
             BottomNavigationBarItem(
-              label: "Perfil",
+              label: "Apis Gratis",
               icon: Icon(Icons.person),
             ),
             BottomNavigationBarItem(

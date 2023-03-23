@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:todov2/app_ejemplo_1/main_app_ejemplo_1.dart';
+import 'package:todov2/app_ejemplo_1/router/AppRouter.dart';
 import 'package:todov2/bases/buttons_base.dart';
 import 'package:todov2/bases/columns.dart';
 import 'package:todov2/bases/container.dart';
@@ -28,15 +29,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: MainAppEjemplo1(),
-      routes: {'detail_user': (context) => DetailUser()},
-      //  Scaffold(
-      //     appBar: AppBar(
-      //       title: const Text("To Do"),
-      //       titleSpacing: 100,
-      //     ),
-      //     body:ButtonBase(),
-
-      //  )
+      routes: AppRouter.routers() ,
     );
   }
 }

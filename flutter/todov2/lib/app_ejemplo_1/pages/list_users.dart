@@ -43,6 +43,7 @@ class _ListUsers extends State<ListUsers> {
               Navigator.pushNamed(context, 'detail_user',
                   arguments: User(users[index]));
             },
+            
           ),
         ),
       ),
