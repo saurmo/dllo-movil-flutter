@@ -13,6 +13,7 @@ import 'package:todov2/ejercicios/BodySection.dart';
 import 'package:todov2/ejercicios/ImageSection.dart';
 import 'package:todov2/ejercicios/TitleSection.dart';
 import 'package:todov2/app_ejemplo_1/pages/detail_user.dart';
+import 'package:todov2/home.dart';
 
 void main() {
   runApp(const MyApp());
@@ -28,7 +29,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MainAppEjemplo1(),
+      home: HomeApps(),
       routes: AppRouter.routers() ,
     );
   }
