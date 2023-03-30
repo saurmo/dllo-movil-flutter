@@ -33,9 +33,8 @@ class _ApisFree extends State {
               } else {
                 return Text("No hay datos para mostrar");
               }
-
             default:
-              return Text("Ha ocurrido un error inesperado.");
+              return const Text("Ha ocurrido un error inesperado.");
           }
         },
       ),

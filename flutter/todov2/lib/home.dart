@@ -13,35 +13,38 @@ class _HomeApps extends State<HomeApps> {
   List<String> appsFlutter = ["Bases", "Listas y navigation bar", "Cards"];
 
   fillListView() {
-    var appsWidgets = appsFlutter
-        .map((e) => Card(
-              elevation: 5,
-              child: Column(
-                children: [
-                  ListTile(
-                    title: Text(e),
-                    subtitle: Text(e),
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      TextButton(
-                          onPressed: () {},
-                          child: const Text("Mostrar descripción")),
-                      TextButton(onPressed: () {}, child: const Text("Ver app"))
-                    ],
-                  )
-                ],
+    var appsWidgets = appsFlutter.map(
+      (e) {
+        return Card(
+          margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+          elevation: 5,
+          child: Column(
+            children: [
+              ListTile(
+                title: Text(e),
+                subtitle: Text(e),
               ),
-            ))
-        .toList();
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  TextButton(
+                      onPressed: () {},
+                      child: const Text("Mostrar descripción")),
+                  TextButton(onPressed: () {}, child: const Text("Ver app"))
+                ],
+              )
+            ],
+          ),
+        );
+      },
+    ).toList();
     return appsWidgets;
   }
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: ListView(
+    return Scaffold(
+      body: ListView(
         children: fillListView(),
       ),
     );

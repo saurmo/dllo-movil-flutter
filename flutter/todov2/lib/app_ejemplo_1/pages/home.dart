@@ -12,8 +12,8 @@ class _Home extends State<Home> {
   bool? isActive = false;
   void onChanged1(bool? value) {
     setState(() {
-      isActive=value;
-      clave=value.toString();
+      isActive = value;
+      clave = value.toString();
     });
   }
 
@@ -25,7 +25,10 @@ class _Home extends State<Home> {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Checkbox(value: isActive, onChanged: onChanged1),
+            Checkbox(
+              value: isActive,
+              onChanged: onChanged1,
+            ),
             ElevatedButton(
               onPressed: () {},
               child: Text("Click"),
