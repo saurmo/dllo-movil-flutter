@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import 'package:todov2/app_ejemplo_1/controller/User.dart';
-
 class HomeApps extends StatefulWidget {
+  const HomeApps({super.key});
+
   @override
   State<StatefulWidget> createState() {
     return _HomeApps();
@@ -10,19 +10,19 @@ class HomeApps extends StatefulWidget {
 }
 
 class _HomeApps extends State<HomeApps> {
-  List<String> appsFlutter = ["Bases", "Listas y navigation bar", "Cards"];
+  List<App> appsFlutter = App.getApps();
 
-  fillListView() {
+  fillListView(context) {
     var appsWidgets = appsFlutter.map(
-      (e) {
+      (app) {
         return Card(
           margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
           elevation: 5,
           child: Column(
             children: [
               ListTile(
-                title: Text(e),
-                subtitle: Text(e),
+                title: Text(app.title),
+                subtitle: Text(app.subtitle),
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
@@ -30,7 +30,12 @@ class _HomeApps extends State<HomeApps> {
                   TextButton(
                       onPressed: () {},
                       child: const Text("Mostrar descripción")),
-                  TextButton(onPressed: () {}, child: const Text("Ver app"))
+                  ElevatedButton(
+                      onPressed: () {
+                        Navigator.pushNamed(context, app.pageName);
+                      },
+                      child: const Text("Ver app"))
+                  // TextButton(onPressed: , )
                 ],
               )
             ],
@@ -45,8 +50,41 @@ class _HomeApps extends State<HomeApps> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: ListView(
-        children: fillListView(),
+        padding: const EdgeInsets.only(top: 50),
+        children: fillListView(context),
       ),
     );
+  }
+}
+
+class App {
+  late String title;
+  late String subtitle;
+  late String description;
+  late String pageName;
+
+  App(
+      {required this.title,
+      required this.subtitle,
+      required this.description,
+      required this.pageName}) {}
+
+  static getApps() {
+    return [
+      App(
+        title: "Bases",
+        subtitle: "Widgets básicos",
+        description:
+            "Muestra los siguientes widgets básicos: Columnas, Rows, Contenedores, Textos, Botones, Imagenes",
+        pageName: "home_bases",
+      ),
+      App(
+        title: "Inputs",
+        subtitle: "Widgets básicos para formularios",
+        description:
+            "Muestra los siguientes widgets básicos: Columnas, Rows, Contenedores, Textos, Botones, Imagenes",
+        pageName: "inputs_screen",
+      )
+    ];
   }
 }
