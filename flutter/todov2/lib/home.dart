@@ -79,12 +79,19 @@ class App {
         pageName: "home_bases",
       ),
       App(
-        title: "Inputs",
-        subtitle: "Widgets básicos para formularios",
+        title: "Formulario",
+        subtitle: "Ejemplo de formularios",
         description:
             "Muestra los siguientes widgets básicos: Columnas, Rows, Contenedores, Textos, Botones, Imagenes",
-        pageName: "inputs_screen",
-      )
+        pageName: "home_form",
+      ),
+      // App(
+      //   title: "Inputs",
+      //   subtitle: "Widgets básicos para formularios",
+      //   description:
+      //       "Muestra los siguientes widgets básicos: Columnas, Rows, Contenedores, Textos, Botones, Imagenes",
+      //   pageName: "inputs_screen",
+      // )
     ];
   }
 }
