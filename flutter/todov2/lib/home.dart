@@ -85,6 +85,12 @@ class App {
             "Muestra los siguientes widgets básicos: Columnas, Rows, Contenedores, Textos, Botones, Imagenes",
         pageName: "home_form",
       ),
+      App(
+        title: "Infinity Scroll",
+        subtitle: "Ejemplo de listview con imagenes e infinity scroll",
+        description: "",
+        pageName: "home_infinity_scroll",
+      ),
       // App(
       //   title: "Inputs",
       //   subtitle: "Widgets básicos para formularios",
