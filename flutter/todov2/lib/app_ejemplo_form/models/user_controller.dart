@@ -36,10 +36,9 @@ class UserController {
   }
 
   Future createUser(Map<String, dynamic> json) async {
-    print("create user");
     HttpCall http = HttpCall();
     var response = await http.create(path, json);
-    print(response);
+    print(response.body);
     return response;
   }
 }

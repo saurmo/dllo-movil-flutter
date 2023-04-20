@@ -91,6 +91,12 @@ class App {
         description: "",
         pageName: "home_infinity_scroll",
       ),
+      App(
+        title: "Infinity Scroll en clase",
+        subtitle: "Ejemplo de listview con imagenes e infinity scroll",
+        description: "",
+        pageName: "home_infinity_scroll_class",
+      ),
       // App(
       //   title: "Inputs",
       //   subtitle: "Widgets básicos para formularios",
