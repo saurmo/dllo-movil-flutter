@@ -97,6 +97,12 @@ class App {
         description: "",
         pageName: "home_infinity_scroll_class",
       ),
+      App(
+        title: "Autenticación con externos",
+        subtitle: "Google",
+        description: "",
+        pageName: "home_external_auth",
+      ),
       // App(
       //   title: "Inputs",
       //   subtitle: "Widgets básicos para formularios",

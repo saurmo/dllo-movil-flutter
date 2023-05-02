@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:todov2/app_ejemplo_1/router/AppRouter.dart';
 import 'package:todov2/home.dart';
+import 'package:todov2/router/AppRouter.dart';
 
 void main() {
   runApp(const MyApp());
