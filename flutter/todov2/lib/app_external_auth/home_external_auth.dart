@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:todov2/app_external_auth/services/firebase_service.dart';
 import 'package:todov2/app_external_auth/widgets/google_sign_in_button.dart';
+import 'package:todov2/app_external_auth/widgets/facebook_sign_in_button.dart';
+import 'package:todov2/app_external_auth/widgets/github_sign_in_button.dart';
 
 class HomeExternalAuth extends StatefulWidget {
   const HomeExternalAuth({super.key});
@@ -27,7 +29,13 @@ class _HomeExternalAuthState extends State<HomeExternalAuth> {
               if (snapshot.hasError) {
                 return Text('Error initializing Firebase');
               } else if (snapshot.connectionState == ConnectionState.done) {
-                return GoogleSignInButton();
+                return Column(
+                  children: [
+                    GoogleSignInButton(),
+                    FacebookSignInButton(),
+                    GitHubSignInButton(),
+                  ],
+                );
               }
               return const CircularProgressIndicator(
                 valueColor: AlwaysStoppedAnimation<Color>(

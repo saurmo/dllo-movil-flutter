@@ -47,7 +47,7 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
                 Text('(${_user.email!})', style: const TextStyle(fontSize: 15)),
                 const SizedBox(height: 24.0),
                 loading
-                    ? const LinearProgressIndicator()
+                    ? const CircularProgressIndicator()
                     : ElevatedButton(
                         style: ButtonStyle(
                           backgroundColor:
@@ -90,6 +90,8 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
           child: Image.network(
             _user.photoURL!,
             fit: BoxFit.fitHeight,
+            width: 100,
+            height: 100,
           ),
         ),
       );

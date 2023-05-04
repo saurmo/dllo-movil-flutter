@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:todov2/app_external_auth/pages/user_info_screen.dart';
@@ -23,59 +24,92 @@ class FirebaseService {
     return firebaseApp;
   }
 
+  static Future<User?> signInWithFacebook(
+      {required BuildContext context}) async {
+    // Trigger the sign-in flow
+    final LoginResult loginResult = await FacebookAuth.instance.login();
+
+    // Create a credential from the access token
+    final OAuthCredential facebookAuthCredential =
+        FacebookAuthProvider.credential(loginResult.accessToken!.token);
+
+    // Once signed in, return the UserCredential
+    final UserCredential userCredential = await FirebaseAuth.instance
+        .signInWithCredential(facebookAuthCredential);
+
+    return userCredential.user;
+  }
+
+  static Future<User?> signInWithGitHub({required BuildContext context}) async {
+    try {
+      // Create a new provider
+      GithubAuthProvider githubProvider = GithubAuthProvider();
+
+      final UserCredential userCredential =
+          await FirebaseAuth.instance.signInWithProvider(githubProvider);
+      return userCredential.user;
+    } catch (e) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        FirebaseService.customSnackBar(
+          content: 'Cancelado',
+        ),
+      );
+      return null;
+    }
+  }
+
   static Future<User?> signInWithGoogle({required BuildContext context}) async {
-    User? user;
+    try {
+      User? user;
 
-    // Realiza el inicio de sesión con Google
-    final GoogleSignIn googleSignIn = GoogleSignIn();
-    final GoogleSignInAccount? googleUser = await googleSignIn.signIn();
+      // Realiza el inicio de sesión con Google
+      final GoogleSignIn googleSignIn = GoogleSignIn(scopes: ['email']);
+      final GoogleSignInAccount? googleUser = await googleSignIn.signIn();
 
-    if (googleUser != null) {
-      // Obtiene las credenciales de Google
-      final GoogleSignInAuthentication googleAuth =
-          await googleUser.authentication;
+      if (googleUser != null) {
+        // Obtiene las credenciales de Google
+        final GoogleSignInAuthentication googleAuth =
+            await googleUser.authentication;
 
 // Crea un objeto de credenciales de Firebase con las credenciales de Google
-      // final OAuthCredential credential = GoogleAuthProvider.credential(
-      final OAuthCredential credential = GoogleAuthProvider.credential(
-        accessToken: googleAuth.accessToken,
-        idToken: googleAuth.idToken,
-      );
+        // final OAuthCredential credential = GoogleAuthProvider.credential(
+        final OAuthCredential credential = GoogleAuthProvider.credential(
+          accessToken: googleAuth.accessToken,
+          idToken: googleAuth.idToken,
+        );
 
-      try {
         FirebaseAuth auth = FirebaseAuth.instance;
 
         final UserCredential userCredential =
             await auth.signInWithCredential(credential);
 
         user = userCredential.user;
-        print(user);
-      } on FirebaseAuthException catch (e) {
-        if (e.code == 'account-exists-with-different-credential') {
-          ScaffoldMessenger.of(context).showSnackBar(
-            FirebaseService.customSnackBar(
-              content:
-                  'The account already exists with a different credential.',
-            ),
-          );
-        } else if (e.code == 'invalid-credential') {
-          ScaffoldMessenger.of(context).showSnackBar(
-            FirebaseService.customSnackBar(
-              content: 'Error occurred while accessing credentials. Try again.',
-            ),
-          );
-        }
-      } catch (e) {
-        print(e);
-        ScaffoldMessenger.of(context).showSnackBar(
-          FirebaseService.customSnackBar(
-            content: 'Error occurred using Google Sign-In. Try again.',
-          ),
-        );
       }
-    }
 
-    return user;
+      return user;
+    } catch (e) {
+      // if (e.code == 'account-exists-with-different-credential') {
+      //       ScaffoldMessenger.of(context).showSnackBar(
+      //         FirebaseService.customSnackBar(
+      //           content:
+      //               'The account already exists with a different credential.',
+      //         ),
+      //       );
+      //     } else if (e.code == 'invalid-credential') {
+      //       ScaffoldMessenger.of(context).showSnackBar(
+      //         FirebaseService.customSnackBar(
+      //           content:
+      //               'Error occurred while accessing credentials. Try again.',
+      //         ),
+      //       );
+      //     }
+      ScaffoldMessenger.of(context).showSnackBar(
+        FirebaseService.customSnackBar(
+          content: 'Cancelado',
+        ),
+      );
+      return null;
+    }
   }
 
   static SnackBar customSnackBar({required String content}) {

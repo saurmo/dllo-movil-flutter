@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:todov2/app_external_auth/services/firebase_service.dart';
 import 'package:todov2/app_external_auth/pages/user_info_screen.dart';
 
-class GoogleSignInButton extends StatefulWidget {
+class FacebookSignInButton extends StatefulWidget {
   @override
-  _GoogleSignInButtonState createState() => _GoogleSignInButtonState();
+  _FacebookSignInButtonState createState() => _FacebookSignInButtonState();
 }
 
-class _GoogleSignInButtonState extends State<GoogleSignInButton> {
+class _FacebookSignInButtonState extends State<FacebookSignInButton> {
   bool loading = false;
 
   @override
@@ -23,7 +23,7 @@ class _GoogleSignInButtonState extends State<GoogleSignInButton> {
                   loading = true;
                 });
                 User? user =
-                    await FirebaseService.signInWithGoogle(context: context);
+                    await FirebaseService.signInWithFacebook(context: context);
                 setState(() {
                   loading = false;
                 });
@@ -37,7 +37,7 @@ class _GoogleSignInButtonState extends State<GoogleSignInButton> {
                 }
               },
               icon: const Icon(Icons.login),
-              label: const Text("Iniciar con Google"),
+              label: const Text("Iniciar con facebook"),
             ),
     );
   }
