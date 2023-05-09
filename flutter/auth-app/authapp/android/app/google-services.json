@@ -1,0 +1,75 @@
+{
+  "project_info": {
+    "project_number": "568245013470",
+    "firebase_url": "https://udem-projects-default-rtdb.firebaseio.com",
+    "project_id": "udem-projects",
+    "storage_bucket": "udem-projects.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:568245013470:android:b9e7bf39d0ac48c08cab4f",
+        "android_client_info": {
+          "package_name": "com.example.authapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "568245013470-1jf9hpg283h7i57ojh0h77rvmojnm6lf.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.authapp",
+            "certificate_hash": "a51833fb78550f2b6eee141852046c10eaaf00c5"
+          }
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDFOc-7wYHhpKUyjoSkUQoCetfmeG25T-Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:568245013470:android:1b10f4d5b43df5bd8cab4f",
+        "android_client_info": {
+          "package_name": "com.example.todov2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "568245013470-0a06f7d9jm2hpspca608a1v7a1avkja2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.todov2",
+            "certificate_hash": "36fa5c0b9d2e8e1e041fd2e9d71d3da424c916b0"
+          }
+        },
+        {
+          "client_id": "568245013470-9gcrqud0sjoh0gpuetohk8gf85fbsfn0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.todov2",
+            "certificate_hash": "4dcd13ac90c52013c5c37425a8641178fc9e91b5"
+          }
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDFOc-7wYHhpKUyjoSkUQoCetfmeG25T-Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
