@@ -1,4 +1,6 @@
+import 'package:authapp/pages/user_info_screen.dart';
 import 'package:authapp/services/firebase_service.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -47,7 +49,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: Center(
         child: FutureBuilder(
-          future: FirebaseService.firebaseInit(),
+          future: FirebaseService.firebaseInit(context),
           builder: (context, snapshot) {
             if (snapshot.connectionState == ConnectionState.done) {
               return Column(
@@ -57,7 +59,27 @@ class _MyHomePageState extends State<MyHomePage> {
                     onPressed: () async {
                       await FirebaseService.signInGoogle();
                     },
-                    child: Text("Iniciar con google"),
+                    child: const Text("Iniciar con google"),
+                  ),
+                  ElevatedButton(
+                    onPressed: () async {
+                      User? user = await FirebaseService.signInWithGitHub();
+                      print(user);
+                      if (user!=null) {
+                        // Navigator.of(context).push(
+                        //   MaterialPageRoute(
+                        //     builder: (context) => UserInfoScreen(user: user),
+                        //   ),
+                        // );
+                        Navigator.of(context).pushAndRemoveUntil(
+                          MaterialPageRoute(
+                            builder: (context) => UserInfoScreen(user: user),
+                          ),
+                          ModalRoute.withName(''),
+                        );
+                      }
+                    },
+                    child: const Text("Iniciar con github"),
                   ),
                 ],
               );
