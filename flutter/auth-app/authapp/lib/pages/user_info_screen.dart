@@ -19,6 +19,7 @@ class UserInfoScreen extends StatefulWidget {
 class _UserInfoScreenState extends State<UserInfoScreen> {
   late User _user;
   bool loading = false;
+  String? displayName="";
 
   TextStyle title = const TextStyle(fontSize: 26);
   DataService dataService = DataService();
@@ -59,6 +60,7 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
                     DataService dataService = DataService();
                    prefs=   await dataService.init();
                     if (prefs!=null) {
+                      print(_user.displayName);
                       await dataService.savePreference(
                           prefs, _user.displayName);
                     }
@@ -68,10 +70,11 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
                 ElevatedButton(
                   onPressed: () async {
                     DataService dataService = DataService();
-                    String? displayName = await dataService.readPreference();
+                     displayName = await dataService.readPreference() ;
                   },
-                  child: const Text("Read firstname"),
+                  child: const Text("Read firstname: "),
                 ),
+                Text("$displayName"),
                 loading
                     ? const CircularProgressIndicator()
                     : ElevatedButton(
