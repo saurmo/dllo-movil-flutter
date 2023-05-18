@@ -44,6 +44,19 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
+        actions: [
+          IconButton(
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => MyHomePage(
+                      title: "Mis tareas de la U",
+                    ),
+                  ),
+                );
+              },
+              icon: Icon(Icons.home))
+        ],
       ),
       drawer: NavegationDrawer(),
       body: Center(

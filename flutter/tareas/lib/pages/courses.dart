@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:tareas/main.dart';
 import 'package:tareas/providers/course_provider.dart';
 import 'package:tareas/widgets/custom_input.dart';
 import 'package:tareas/widgets/navegation_drawer.dart';
@@ -15,7 +16,17 @@ class _CoursePageState extends State<CoursePage> {
     return Scaffold(
         appBar: AppBar(
           title: const Text("Cursos"),
+          actions: [
+            IconButton(onPressed: () {
+                    Navigator.of(context).pushReplacement(
+                    MaterialPageRoute(
+                      builder: (context) => MyHomePage(title: "Mis tareas de la U",),
+                    ),
+                  );
+            }, icon: Icon(Icons.home))
+          ],
         ),
+        
         drawer: NavegationDrawer(),
         body: Padding(
           padding: const EdgeInsets.all(15),
