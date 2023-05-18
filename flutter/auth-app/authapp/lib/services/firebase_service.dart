@@ -66,6 +66,7 @@ class FirebaseService {
 
       return userCredential.user;
     } catch (e) {
+      print(e);
       return null;
     }
   }

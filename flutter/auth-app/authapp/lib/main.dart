@@ -1,7 +1,9 @@
 import 'package:authapp/pages/user_info_screen.dart';
+import 'package:authapp/services/data_service.dart';
 import 'package:authapp/services/firebase_service.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 void main() {
   runApp(const MyApp());
@@ -33,6 +35,18 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  DataService dataService = DataService();
+  SharedPreferences? prefs = null;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    dataService.init().then((value) {
+      print("init");
+      prefs = value;
+    });
+  }
+
   int _counter = 0;
 
   void _incrementCounter() {
@@ -65,7 +79,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     onPressed: () async {
                       User? user = await FirebaseService.signInWithGitHub();
                       print(user);
-                      if (user!=null) {
+                      if (user != null) {
                         // Navigator.of(context).push(
                         //   MaterialPageRoute(
                         //     builder: (context) => UserInfoScreen(user: user),
@@ -80,6 +94,25 @@ class _MyHomePageState extends State<MyHomePage> {
                       }
                     },
                     child: const Text("Iniciar con github"),
+                  ),
+                  ElevatedButton(
+                    onPressed: () async {
+                      DataService dataService = DataService();
+                      prefs = await dataService.init();
+                      if (prefs != null) {
+                        await dataService.savePreference(
+                            prefs, "_user.displayName");
+                      }
+                    },
+                    child: const Text("Save firstname"),
+                  ),
+                  ElevatedButton(
+                    onPressed: () async {
+                      DataService dataService = DataService();
+                      String? displayName = await dataService.readPreference();
+                      print(displayName);
+                    },
+                    child: const Text("Read firstname"),
                   ),
                 ],
               );

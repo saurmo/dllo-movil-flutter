@@ -57,8 +57,8 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
                 ElevatedButton(
                   onPressed: () async {
                     DataService dataService = DataService();
-                   prefs=   await dataService.init();
-                    if (prefs!=null) {
+                    prefs = await dataService.init();
+                    if (prefs != null) {
                       await dataService.savePreference(
                           prefs, _user.displayName);
                     }
