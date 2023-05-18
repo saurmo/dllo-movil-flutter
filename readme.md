@@ -11,3 +11,8 @@ storePassword=mis-tareas
 keyPassword=mis-tareas
 keyAlias=mis-tareas
 storeFile=/Users/santiagourrego/Documents/docencia/flutter/dllo-movil-flutter/mis-tareas.jks
+
+storePassword=mis-tareas
+keyPassword=mis-tareas
+keyAlias=mis-tareas
+storeFile=C:\Users\b14s204\Documents\dllo-movil\dllo-movil-flutter\mis-tareas.jks
