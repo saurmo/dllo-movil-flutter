@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tareas/widgets/navegation_drawer.dart';
 
 void main() {
   runApp(const MyApp());
@@ -40,17 +41,17 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
       ),
+      drawer: NavegationDrawer(),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             const Text(
-              'Número de tareas pendientes:',
+              'Número de tareas pendientes',
             ),
             Text(
               '$_counter',
