@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
       useMaterial3: true,
     );
     print("Inicio de app");
-    MyHomePage home = const MyHomePage();
+    MyHomePage home =  MyHomePage();
 
     return MaterialApp(
       title: title,

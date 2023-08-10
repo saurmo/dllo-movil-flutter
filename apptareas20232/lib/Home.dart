@@ -1,8 +1,16 @@
 import 'package:flutter/material.dart';
 
 class MyHomePage extends StatelessWidget {
-  const MyHomePage({super.key});
+   MyHomePage({super.key});
 
+  var contenedor1 = Container(
+    alignment: Alignment.center,
+    color: Colors.amber,
+    width: 50,
+    height: 50,
+    child: const Text("Hola Mundo"),
+  );
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -10,18 +18,7 @@ class MyHomePage extends StatelessWidget {
         title: Text("Mi Aplicacion"),
         backgroundColor: Colors.blueAccent,
       ),
-      body: Container(
-        child: Container(
-          child: Container(
-            child: Text("Hola Mundo"),
-            alignment: Alignment.center,
-            color: Colors.amber,
-            width: 50,
-            height: 50,
-          ),
-          alignment: Alignment.center,
-        ),
-      ),
+      body: contenedor1,
     );
   }
 }
