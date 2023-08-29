@@ -1,5 +1,5 @@
-import 'package:apptareas20232/detailZone.dart';
-import 'package:apptareas20232/listZones.dart';
+import 'package:apptareas20232/ejemplo_listas_v1/views/detailZone.dart';
+import 'package:apptareas20232/ejemplo_listas_v1/views/listZones.dart';
 import 'package:apptareas20232/styles.dart';
 import 'package:flutter/material.dart';
 
@@ -12,6 +12,10 @@ class AppBases extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: createScaffold(),
+      routes: {
+        "home": (context) => ListZones(),
+        "detailPlace": (context) => DetailZone(),
+      },
     );
   }
 }

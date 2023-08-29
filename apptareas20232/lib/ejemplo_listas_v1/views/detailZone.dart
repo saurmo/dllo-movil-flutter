@@ -1,38 +1,40 @@
+import 'package:apptareas20232/ejemplo_listas_v1/models/Place.dart';
 import 'package:apptareas20232/styles.dart';
 import 'package:flutter/material.dart';
 
 class DetailZone extends StatelessWidget {
-  const DetailZone({
-    super.key,
-    required this.url,
-    required this.title,
-    required this.subtitle,
-    required this.stars,
-    required this.description,
-  });
+  Place? place;
 
-  final String url;
-  final String title;
-  final String subtitle;
-  final int stars;
-  final String description;
+  DetailZone({super.key, Place? this.place});
 
   @override
   Widget build(BuildContext context) {
+    if (place != null) {
+      return Scaffold(
+          appBar: AppBar(
+            title: Text("Detalle ${place!.title}"),
+          ),
+          body: Container(
+            width: double.infinity,
+            height: double.maxFinite,
+            child: Column(
+              children: [
+                createImage(place!.url),
+                const Padding(padding: EdgeInsets.only(top: 15, bottom: 15)),
+                createHeader(
+                    title: place!.title,
+                    subtitle: place!.subtitle,
+                    stars: place!.stars ?? 0),
+                const Padding(padding: EdgeInsets.only(top: 15, bottom: 15)),
+                createButtonSection(),
+                const Padding(padding: EdgeInsets.only(top: 15, bottom: 15)),
+                createDescriptionSection(place!.description)
+              ],
+            ),
+          ));
+    }
     return Container(
-      width: double.infinity,
-      height: double.maxFinite,
-      child: Column(
-        children: [
-          createImage(url),
-          const Padding(padding: EdgeInsets.only(top: 15, bottom: 15)),
-          createHeader(title: title, subtitle: subtitle, stars: stars),
-          const Padding(padding: EdgeInsets.only(top: 15, bottom: 15)),
-          createButtonSection(),
-          const Padding(padding: EdgeInsets.only(top: 15, bottom: 15)),
-          createDescriptionSection(description)
-        ],
-      ),
+      child: Text("Error cargando el lugar"),
     );
   }
 }
@@ -49,7 +51,8 @@ createImage(String url) {
   );
 }
 
-createHeader({required String title, required String subtitle, int? stars}) {
+Padding createHeader(
+    {required String title, required String subtitle, int? stars}) {
   return Padding(
     padding: const EdgeInsets.only(left: 15, right: 15),
     child: Row(
