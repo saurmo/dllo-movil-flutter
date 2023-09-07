@@ -1,4 +1,5 @@
 import 'package:apptareas20232/agenda/main.dart';
+import 'package:apptareas20232/ejemplo_lista_v2/views/home.dart';
 import 'package:apptareas20232/ejemplo_listas_v1/views/detailZone.dart';
 import 'package:apptareas20232/ejemplo_listas_v1/views/listZones.dart';
 import 'package:apptareas20232/styles.dart';
@@ -14,8 +15,9 @@ class AppBases extends StatelessWidget {
     return MaterialApp(
       home: createScaffold(),
       routes: {
-        "home": (context) => ListZones(),
-        "detailPlace": (context) => DetailZone(),
+        "lugares": (context) => ListZones(),
+        "agenda": (context) => AgendaMain(),
+        "frases": (context) => HomeFrases(),
       },
     );
   }
@@ -23,8 +25,9 @@ class AppBases extends StatelessWidget {
 
 createScaffold() {
   List examples = [
-    {"name": "Lista de lugares"},
-    {"name": "Agenda de contactos"}
+    {"name": "Lista de lugares", "route":""},
+    {"name": "Agenda de contactos", "route":"agenda"},
+    {"name": "Lista de frases", "route":"frases"}
   ];
 
   return Scaffold(
@@ -36,11 +39,8 @@ createScaffold() {
         return ListTile(
           title: Text(examples[index]["name"]),
           onTap: () {
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => AgendaMain(),
-                ));
+            Navigator.pushNamed(
+                context,examples[index]["route"]);
           },
         );
       },
