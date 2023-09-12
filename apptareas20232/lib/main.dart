@@ -1,6 +1,5 @@
 import 'package:apptareas20232/agenda/main.dart';
-import 'package:apptareas20232/bases/IconsTextsImages.dart';
-import 'package:apptareas20232/bases/rowsColumnsContainers.dart';
+import 'package:apptareas20232/ejemplo_lista_v2/views/home.dart';
 import 'package:apptareas20232/ejemplo_listas_v1/views/detailZone.dart';
 import 'package:apptareas20232/ejemplo_listas_v1/views/listZones.dart';
 import 'package:apptareas20232/listas_v2/listav2.dart';
