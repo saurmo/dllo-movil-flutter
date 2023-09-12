@@ -1,13 +1,9 @@
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(AppBases());
-}
-
-class AppBases extends StatelessWidget {
+class RowsColumnsContainers extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(home: createScaffold());
+    return createScaffold();
   }
 }
 
