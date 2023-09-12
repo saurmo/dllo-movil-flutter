@@ -1,4 +1,7 @@
 import 'package:apptareas20232/agenda/main.dart';
+import 'package:apptareas20232/app_bottom_nav/view/AppBottom.dart';
+import 'package:apptareas20232/bases/IconsTextsImages.dart';
+import 'package:apptareas20232/bases/rowsColumnsContainers.dart';
 import 'package:apptareas20232/ejemplo_lista_v2/views/home.dart';
 import 'package:apptareas20232/ejemplo_listas_v1/views/detailZone.dart';
 import 'package:apptareas20232/ejemplo_listas_v1/views/listZones.dart';
@@ -20,7 +23,8 @@ class AppBases extends StatelessWidget {
         "agenda": (context) => AgendaMain(),
         "bases1": (context) => IconsTextsImages(),
         "bases2": (context) => RowsColumnsContainers(),
-        "musica": (context) => ListaV2()
+        "frases": (context) => HomeFrases(),
+        "app_bottom_nav": (context) => AppBottom()
       },
     );
   }
@@ -32,7 +36,8 @@ createScaffold() {
     {"name": "Widgets básicos Segunda parte", "route": "bases2"},
     {"name": "Lista de lugares", "route": "places"},
     {"name": "Agenda de contactos", "route": "agenda"},
-    {"name": "Lista musical", "route": "musica"},
+    {"name": "Lista frases", "route": "frases"},
+    {"name": "App Bottom Nav", "route": "app_bottom_nav"},
   ];
 
   return Scaffold(
