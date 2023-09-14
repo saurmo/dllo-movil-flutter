@@ -1,5 +1,6 @@
 import 'package:apptareas20232/agenda/main.dart';
 import 'package:apptareas20232/app_bottom_nav/view/AppBottom.dart';
+import 'package:apptareas20232/app_form_v2/AppFormsV2.dart';
 import 'package:apptareas20232/app_forms_v1/AppForms.dart';
 import 'package:apptareas20232/bases/IconsTextsImages.dart';
 import 'package:apptareas20232/bases/rowsColumnsContainers.dart';
@@ -27,6 +28,7 @@ class AppBases extends StatelessWidget {
         "frases": (context) => HomeFrases(),
         "app_bottom_nav": (context) => AppBottom(),
         "app_form_v1": (context) => AppForms(),
+        "app_form_v2": (context) => AppFormsV2(),
       },
     );
   }
@@ -41,6 +43,7 @@ createScaffold() {
     {"name": "Lista frases", "route": "frases"},
     {"name": "App Bottom Nav", "route": "app_bottom_nav"},
     {"name": "App Formularios v1", "route": "app_form_v1"},
+    {"name": "App Formularios v2", "route": "app_form_v2"},
   ];
 
   return Scaffold(
