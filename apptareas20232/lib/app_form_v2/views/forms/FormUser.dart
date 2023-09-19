@@ -1,5 +1,6 @@
 import 'package:apptareas20232/app_form_v2/controllers/UserProvider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 
 class FormUser extends StatefulWidget {
@@ -76,11 +77,19 @@ class _FormUserState extends State<FormUser> {
             keyboardType: TextInputType.datetime,
           ),
           ElevatedButton.icon(
+            onPressed: () {
+              _userProvider.createUser();
+            },
+            icon: const Icon(Icons.save),
+            label: const Text("Crear usuario"),
+          ),
+          IconButton(
               onPressed: () {
-                _userProvider.createUser();
+                Clipboard.setData(
+                    ClipboardData(text: _userProvider.user.lastname));
+                print("Copiaste el apellido");
               },
-              icon: const Icon(Icons.save),
-              label: const Text("Crear usuario"))
+              icon: const Icon(Icons.copy))
         ],
       ),
     );

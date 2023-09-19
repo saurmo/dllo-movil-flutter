@@ -11,15 +11,22 @@ class AppFormsV2 extends StatefulWidget {
 }
 
 class _AppFormsV2 extends State {
+  Future refresh() async {
+    setState(() {});
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text("Forms")),
       body: Padding(
         padding: EdgeInsets.all(10.0),
-        child: ChangeNotifierProvider(
-          create: (context) => UserProvider(),
-          child: FormUser(),
+        child: RefreshIndicator.adaptive(
+          onRefresh: refresh,
+          child: ChangeNotifierProvider(
+            create: (context) => UserProvider(),
+            child: FormUser(),
+          ),
         ),
       ),
     );

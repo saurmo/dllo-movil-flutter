@@ -10,31 +10,41 @@ class HomeFrases extends StatefulWidget {
 
 class _HomeFrases extends State<HomeFrases> {
   FrasesController _frasesController = FrasesController();
+  Future refresh() async {
+    setState(() {});
+    print("Hola");
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text("Frases Chuck Norris Api")),
-      body: FutureBuilder(
-        future: _frasesController.getFrases(),
-        builder: (context, snapshot) {
-          switch (snapshot.connectionState) {
-            case ConnectionState.waiting:
-              return const Text("Cargando...");
-            case ConnectionState.done:
-              {
-                if (snapshot.hasData) {
-                  String frase = snapshot.data!.value.toString();
-                  return Text(frase);
-                } else {
-                  return Text(snapshot.error.toString());
-                }
-              }
+      body: Padding(
+        padding: const EdgeInsets.all(10),
+        child: RefreshIndicator.adaptive(
+          onRefresh: refresh,
+          child: FutureBuilder(
+            future: _frasesController.getFrases(),
+            builder: (context, snapshot) {
+              switch (snapshot.connectionState) {
+                case ConnectionState.waiting:
+                  return const CircularProgressIndicator.adaptive();
+                case ConnectionState.done:
+                  {
+                    if (snapshot.hasData) {
+                      String frase = snapshot.data!.value.toString();
+                      return Text(frase);
+                    } else {
+                      return Text(snapshot.error.toString());
+                    }
+                  }
 
-            default:
-              return const Text("Ha ocurrido un error");
-          }
-        },
+                default:
+                  return const Text("Ha ocurrido un error");
+              }
+            },
+          ),
+        ),
       ),
     );
   }

@@ -2,6 +2,8 @@ import 'package:apptareas20232/agenda/main.dart';
 import 'package:apptareas20232/app_bottom_nav/view/AppBottom.dart';
 import 'package:apptareas20232/app_form_v2/AppFormsV2.dart';
 import 'package:apptareas20232/app_forms_v1/AppForms.dart';
+import 'package:apptareas20232/app_gestos/AppGestos.dart';
+import 'package:apptareas20232/app_scroll_infinity/AppScrollInfinity.dart';
 import 'package:apptareas20232/bases/IconsTextsImages.dart';
 import 'package:apptareas20232/bases/rowsColumnsContainers.dart';
 import 'package:apptareas20232/ejemplo_lista_v2/views/home.dart';
@@ -29,6 +31,8 @@ class AppBases extends StatelessWidget {
         "app_bottom_nav": (context) => AppBottom(),
         "app_form_v1": (context) => AppForms(),
         "app_form_v2": (context) => AppFormsV2(),
+        "app_gestos": (context) => AppGestos(),
+        "app_scroll": (context) => AppScrollInfinity(),
       },
     );
   }
@@ -44,6 +48,8 @@ createScaffold() {
     {"name": "App Bottom Nav", "route": "app_bottom_nav"},
     {"name": "App Formularios v1", "route": "app_form_v1"},
     {"name": "App Formularios v2", "route": "app_form_v2"},
+    {"name": "App Gestos", "route": "app_gestos"},
+    {"name": "App Scroll Infinity", "route": "app_scroll"},
   ];
 
   return Scaffold(
