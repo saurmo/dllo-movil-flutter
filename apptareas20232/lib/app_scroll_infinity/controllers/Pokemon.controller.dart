@@ -4,12 +4,9 @@ import 'package:apptareas20232/app_scroll_infinity/models/Pokemon.dart';
 import 'package:http/http.dart' as http;
 
 class PokemonController {
-  PokemonController() {
-    getPokemons();
-  }
-  Future<List<Pokemon>> getPokemons() async {
+  Future<List<Pokemon>> getPokemons({required int offset}) async {
     List<Pokemon> pokemons = [];
-    String url = "https://pokeapi.co/api/v2/pokemon";
+    String url = "https://pokeapi.co/api/v2/pokemon?offset=$offset&limit=20";
 
     http.Response response = await http.get(Uri.parse(url));
 
