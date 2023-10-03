@@ -3,61 +3,61 @@
   "packages": [
     {
       "name": "async",
-      "rootUri": "file:///C:/Users/b14s204/AppData/Local/Pub/Cache/hosted/pub.dev/async-2.11.0",
+      "rootUri": "file:///Users/santiagourrego/.pub-cache/hosted/pub.dev/async-2.11.0",
       "packageUri": "lib/",
       "languageVersion": "2.18"
     },
     {
       "name": "collection",
-      "rootUri": "file:///C:/Users/b14s204/AppData/Local/Pub/Cache/hosted/pub.dev/collection-1.18.0",
+      "rootUri": "file:///Users/santiagourrego/.pub-cache/hosted/pub.dev/collection-1.18.0",
       "packageUri": "lib/",
       "languageVersion": "2.18"
     },
     {
       "name": "http",
-      "rootUri": "file:///C:/Users/b14s204/AppData/Local/Pub/Cache/hosted/pub.dev/http-1.1.0",
+      "rootUri": "file:///Users/santiagourrego/.pub-cache/hosted/pub.dev/http-1.1.0",
       "packageUri": "lib/",
       "languageVersion": "3.0"
     },
     {
       "name": "http_parser",
-      "rootUri": "file:///C:/Users/b14s204/AppData/Local/Pub/Cache/hosted/pub.dev/http_parser-4.0.2",
+      "rootUri": "file:///Users/santiagourrego/.pub-cache/hosted/pub.dev/http_parser-4.0.2",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
     {
       "name": "meta",
-      "rootUri": "file:///C:/Users/b14s204/AppData/Local/Pub/Cache/hosted/pub.dev/meta-1.9.1",
+      "rootUri": "file:///Users/santiagourrego/.pub-cache/hosted/pub.dev/meta-1.9.1",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
     {
       "name": "path",
-      "rootUri": "file:///C:/Users/b14s204/AppData/Local/Pub/Cache/hosted/pub.dev/path-1.8.3",
+      "rootUri": "file:///Users/santiagourrego/.pub-cache/hosted/pub.dev/path-1.8.3",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
     {
       "name": "source_span",
-      "rootUri": "file:///C:/Users/b14s204/AppData/Local/Pub/Cache/hosted/pub.dev/source_span-1.10.0",
+      "rootUri": "file:///Users/santiagourrego/.pub-cache/hosted/pub.dev/source_span-1.10.0",
       "packageUri": "lib/",
       "languageVersion": "2.18"
     },
     {
       "name": "string_scanner",
-      "rootUri": "file:///C:/Users/b14s204/AppData/Local/Pub/Cache/hosted/pub.dev/string_scanner-1.2.0",
+      "rootUri": "file:///Users/santiagourrego/.pub-cache/hosted/pub.dev/string_scanner-1.2.0",
       "packageUri": "lib/",
       "languageVersion": "2.18"
     },
     {
       "name": "term_glyph",
-      "rootUri": "file:///C:/Users/b14s204/AppData/Local/Pub/Cache/hosted/pub.dev/term_glyph-1.2.1",
+      "rootUri": "file:///Users/santiagourrego/.pub-cache/hosted/pub.dev/term_glyph-1.2.1",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
     {
       "name": "typed_data",
-      "rootUri": "file:///C:/Users/b14s204/AppData/Local/Pub/Cache/hosted/pub.dev/typed_data-1.3.2",
+      "rootUri": "file:///Users/santiagourrego/.pub-cache/hosted/pub.dev/typed_data-1.3.2",
       "packageUri": "lib/",
       "languageVersion": "2.17"
     },
@@ -68,7 +68,7 @@
       "languageVersion": "3.0"
     }
   ],
-  "generated": "2023-08-10T21:09:38.251913Z",
+  "generated": "2023-10-03T21:19:38.032308Z",
   "generator": "pub",
-  "generatorVersion": "3.0.7"
+  "generatorVersion": "3.1.0"
 }

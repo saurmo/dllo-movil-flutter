@@ -65,7 +65,7 @@ class _AppForms extends State {
             onChanged: (value) => print(value),
           ),
           RadioListTile(
-            value: "1",
+            value: "2",
             groupValue: "radios",
             onChanged: (value) => print(value),
             title: const Text("Title"),
