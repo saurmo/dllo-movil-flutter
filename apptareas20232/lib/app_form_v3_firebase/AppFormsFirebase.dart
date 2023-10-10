@@ -1,5 +1,6 @@
-import 'package:apptareas20232/app_form_v2/controllers/UserProvider.dart';
-import 'package:apptareas20232/app_form_v2/views/forms/FormUser.dart';
+import 'package:apptareas20232/app_form_v3_firebase/controllers/UserProvider.dart';
+import 'package:apptareas20232/app_form_v3_firebase/views/forms/FormUser.dart';
+import 'package:apptareas20232/app_form_v3_firebase/views/lists/ListUsers.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -25,7 +26,7 @@ class _AppFormsFirebase extends State {
           onRefresh: refresh,
           child: ChangeNotifierProvider(
             create: (context) => UserProvider(),
-            child: FormUser(),
+            child: ListUsersFirebase(),
           ),
         ),
       ),

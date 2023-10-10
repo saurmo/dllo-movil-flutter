@@ -1,0 +1,3 @@
+class IJsonAdapter {
+  createJson() {}
+}
