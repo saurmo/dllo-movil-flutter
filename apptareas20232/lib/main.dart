@@ -1,9 +1,12 @@
+import 'dart:io';
+
 import 'package:apptareas20232/agenda/main.dart';
 import 'package:apptareas20232/app_bottom_nav/view/AppBottom.dart';
 import 'package:apptareas20232/app_form_v2/AppFormsV2.dart';
 import 'package:apptareas20232/app_form_v3_firebase/AppFormsFirebase.dart';
 import 'package:apptareas20232/app_forms_v1/AppForms.dart';
 import 'package:apptareas20232/app_gestos/AppGestos.dart';
+import 'package:apptareas20232/app_login_providers/views/LoginProviders.dart';
 import 'package:apptareas20232/app_scroll_infinity/AppScrollInfinity.dart';
 import 'package:apptareas20232/bases/IconsTextsImages.dart';
 import 'package:apptareas20232/bases/rowsColumnsContainers.dart';
@@ -32,6 +35,7 @@ class AppBases extends StatelessWidget {
     return MaterialApp(
       home: createScaffold(),
       routes: {
+        "login_provider": (context) => LoginProvider(),
         "app_form_firebase": (context) => AppFormsFirebase(),
         "places": (context) => ListZones(),
         "agenda": (context) => AgendaMain(),
@@ -50,6 +54,7 @@ class AppBases extends StatelessWidget {
 
 createScaffold() {
   List examples = [
+    {"name": "App Login Providers", "route": "login_provider"},
     {"name": "App Firebase Database", "route": "app_form_firebase"},
     {"name": "Widgets básicos Primera parte", "route": "bases1"},
     {"name": "Widgets básicos Segunda parte", "route": "bases2"},
@@ -62,7 +67,6 @@ createScaffold() {
     {"name": "App Gestos", "route": "app_gestos"},
     {"name": "App Scroll Infinity", "route": "app_scroll"},
   ];
-
   return Scaffold(
     appBar: AppBar(title: const Text("Lista de Apps 2023-2")),
     body: ListView.separated(

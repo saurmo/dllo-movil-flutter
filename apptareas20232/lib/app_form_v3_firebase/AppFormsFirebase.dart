@@ -1,8 +1,5 @@
-import 'package:apptareas20232/app_form_v3_firebase/controllers/UserProvider.dart';
-import 'package:apptareas20232/app_form_v3_firebase/views/forms/FormUser.dart';
 import 'package:apptareas20232/app_form_v3_firebase/views/lists/ListUsers.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 class AppFormsFirebase extends StatefulWidget {
   @override
@@ -24,10 +21,7 @@ class _AppFormsFirebase extends State {
         padding: EdgeInsets.all(10.0),
         child: RefreshIndicator.adaptive(
           onRefresh: refresh,
-          child: ChangeNotifierProvider(
-            create: (context) => UserProvider(),
-            child: ListUsersFirebase(),
-          ),
+          child: ListUsersFirebase(),
         ),
       ),
     );

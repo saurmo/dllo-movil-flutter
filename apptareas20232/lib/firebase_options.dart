@@ -53,11 +53,10 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyDFOc-7wYHhpKUyjoSkUQoCetfmeG25T-Y',
-    appId: '1:568245013470:android:863ae3fc5aaf0fc78cab4f',
-    messagingSenderId: '568245013470',
-    projectId: 'udem-projects',
-    databaseURL: 'https://udem-projects-default-rtdb.firebaseio.com',
-    storageBucket: 'udem-projects.appspot.com',
+    apiKey: 'AIzaSyBmaFqfFT2PI6-GAO3QAvfXC5p2bjelJWw',
+    appId: '1:985811018421:android:cbd71ece7eb03d424bd4fc',
+    messagingSenderId: '985811018421',
+    projectId: 'tasks20232',
+    storageBucket: 'tasks20232.appspot.com',
   );
 }

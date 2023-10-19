@@ -1,8 +1,9 @@
-import 'package:apptareas20232/app_form_v2/views/forms/FormUser.dart';
-import 'package:apptareas20232/app_form_v3_firebase/controllers/FirebaseController.dart';
+import 'package:apptareas20232/app_form_v3_firebase/views/forms/FormUser.dart';
 import 'package:apptareas20232/app_form_v3_firebase/controllers/UserController.dart';
 import 'package:apptareas20232/app_form_v3_firebase/models/User.dart';
 import 'package:flutter/material.dart';
+import 'package:apptareas20232/app_form_v3_firebase/controllers/UserProvider.dart';
+import 'package:provider/provider.dart';
 
 class ListUsersFirebase extends StatefulWidget {
   @override
@@ -22,7 +23,10 @@ class _ListUsersFirebase extends State {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => FormUser(),
+              builder: (context) => ChangeNotifierProvider(
+                create: (context) => UserProvider(),
+                child: FormUser(),
+              ),
             ),
           );
         },
