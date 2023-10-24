@@ -33,7 +33,7 @@ class AppBases extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: createScaffold(),
+      home: createScaffold(context),
       routes: {
         "login_provider": (context) => LoginProvider(),
         "app_form_firebase": (context) => AppFormsFirebase(),
@@ -52,8 +52,9 @@ class AppBases extends StatelessWidget {
   }
 }
 
-createScaffold() {
+createScaffold(ctx) {
   List examples = [
+    {"name": "Dialog", "dialog": true},
     {"name": "App Login Providers", "route": "login_provider"},
     {"name": "App Firebase Database", "route": "app_form_firebase"},
     {"name": "Widgets básicos Primera parte", "route": "bases1"},
@@ -69,12 +70,21 @@ createScaffold() {
   ];
   return Scaffold(
     appBar: AppBar(title: const Text("Lista de Apps 2023-2")),
+    bottomNavigationBar: ElevatedButton(
+        onPressed: () {
+          alertDialog(ctx);
+        },
+        child: Text("Di")),
     body: ListView.separated(
       itemBuilder: (context, index) {
         return ListTile(
           title: Text(examples[index]["name"]),
           onTap: () {
-            routing(context, examples[index]["route"]);
+            if (examples[index]["dialog"] == true) {
+              alertDialog(ctx);
+            } else {
+              routing(context, examples[index]["route"]);
+            }
           },
         );
       },
@@ -94,4 +104,24 @@ void routing(BuildContext context, String route) {
   //   ),
   // );
   Navigator.pushNamed(context, route);
+}
+
+alertDialog(context) {
+  showDialog<String>(
+    context: context,
+    builder: (BuildContext context) => AlertDialog(
+      title: const Text('AlertDialog Title'),
+      content: const Text('AlertDialog description'),
+      actions: <Widget>[
+        TextButton(
+          onPressed: () => Navigator.pop(context, 'Cancel'),
+          child: const Text('Cancel'),
+        ),
+        TextButton(
+          onPressed: () => Navigator.pop(context, 'OK'),
+          child: const Text('OK'),
+        ),
+      ],
+    ),
+  );
 }
