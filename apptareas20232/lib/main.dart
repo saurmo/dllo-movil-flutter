@@ -14,15 +14,41 @@ import 'package:apptareas20232/ejemplo_lista_v2/views/home.dart';
 import 'package:apptareas20232/ejemplo_listas_v1/views/detailZone.dart';
 import 'package:apptareas20232/ejemplo_listas_v1/views/listZones.dart';
 import 'package:apptareas20232/listas_v2/listav2.dart';
+import 'package:apptareas20232/push_notification/HomePushNotification.dart';
 import 'package:apptareas20232/styles.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
 
+@pragma('vm:entry-point')
+Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
+  // If you're going to use other Firebase services in the background, such as Firestore,
+  // make sure you call `initializeApp` before using other Firebase services.
+  await Firebase.initializeApp();
+
+  print("Handling a background message: ${message.messageId}");
+}
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
+  FirebaseMessaging.onMessage.listen((RemoteMessage message) {
+    try {
+      print('Got a message whilst in the foreground!');
+      print('Message data: ${message.data}');
 
+      if (message.notification != null) {
+        print('Message data: ${message.notification?.body}');
+
+        print('Message also contained a notification: ${message.notification}');
+      }
+    } catch (e) {
+      print('ERROR');
+      print(e);
+    }
+  });
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
@@ -33,8 +59,10 @@ class AppBases extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: createScaffold(context),
       routes: {
+        "push": (context) => HomePushNotification(),
         "login_provider": (context) => LoginProvider(),
         "app_form_firebase": (context) => AppFormsFirebase(),
         "places": (context) => ListZones(),
@@ -55,6 +83,7 @@ class AppBases extends StatelessWidget {
 createScaffold(ctx) {
   List examples = [
     {"name": "Dialog", "dialog": true},
+    {"name": "Push", "route": "push"},
     {"name": "App Login Providers", "route": "login_provider"},
     {"name": "App Firebase Database", "route": "app_form_firebase"},
     {"name": "Widgets básicos Primera parte", "route": "bases1"},
@@ -72,7 +101,7 @@ createScaffold(ctx) {
     appBar: AppBar(title: const Text("Lista de Apps 2023-2")),
     bottomNavigationBar: ElevatedButton(
         onPressed: () {
-          alertDialog(ctx);
+          createAlertDialog(ctx);
         },
         child: Text("Di")),
     body: ListView.separated(
@@ -81,7 +110,7 @@ createScaffold(ctx) {
           title: Text(examples[index]["name"]),
           onTap: () {
             if (examples[index]["dialog"] == true) {
-              alertDialog(ctx);
+              createAlertDialog(ctx);
             } else {
               routing(context, examples[index]["route"]);
             }
@@ -106,22 +135,24 @@ void routing(BuildContext context, String route) {
   Navigator.pushNamed(context, route);
 }
 
-alertDialog(context) {
-  showDialog<String>(
+createAlertDialog(context) {
+  showDialog(
     context: context,
-    builder: (BuildContext context) => AlertDialog(
-      title: const Text('AlertDialog Title'),
-      content: const Text('AlertDialog description'),
-      actions: <Widget>[
-        TextButton(
-          onPressed: () => Navigator.pop(context, 'Cancel'),
-          child: const Text('Cancel'),
-        ),
-        TextButton(
-          onPressed: () => Navigator.pop(context, 'OK'),
-          child: const Text('OK'),
-        ),
-      ],
-    ),
+    builder: (context) {
+      return AlertDialog(
+        title: const Text('AlertDialog Title'),
+        content: const Text('AlertDialog description'),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(context, 'Cancel'),
+            child: const Text('Cancel'),
+          ),
+          TextButton(
+            onPressed: () => Navigator.pop(context, 'OK'),
+            child: const Text('OK'),
+          ),
+        ],
+      );
+    },
   );
 }
