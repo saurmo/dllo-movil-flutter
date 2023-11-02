@@ -10,6 +10,10 @@ import 'package:apptareas20232/app_login_providers/views/LoginProviders.dart';
 import 'package:apptareas20232/app_scroll_infinity/AppScrollInfinity.dart';
 import 'package:apptareas20232/bases/IconsTextsImages.dart';
 import 'package:apptareas20232/bases/rowsColumnsContainers.dart';
+import 'package:apptareas20232/config/BlankPage.dart';
+import 'package:apptareas20232/config/BlankPage2.dart';
+import 'package:apptareas20232/config/BlankPage3.dart';
+import 'package:apptareas20232/config/StateProvider.dart';
 import 'package:apptareas20232/ejemplo_lista_v2/views/home.dart';
 import 'package:apptareas20232/ejemplo_listas_v1/views/detailZone.dart';
 import 'package:apptareas20232/ejemplo_listas_v1/views/listZones.dart';
@@ -20,6 +24,7 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 
 import 'package:firebase_core/firebase_core.dart';
+import 'package:provider/provider.dart';
 import 'firebase_options.dart';
 
 @pragma('vm:entry-point')
@@ -32,6 +37,12 @@ Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
 }
 
 void main() async {
+  await FirebaseConfig();
+
+  runApp(AppBases());
+}
+
+Future<void> FirebaseConfig() async {
   WidgetsFlutterBinding.ensureInitialized();
   FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
   FirebaseMessaging.onMessage.listen((RemoteMessage message) {
@@ -52,16 +63,34 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  runApp(AppBases());
 }
 
 class AppBases extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return ChangeNotifierProvider(
+      create: (context) {
+        return StateProvider();
+      },
+      child: AppMain(),
+    );
+  }
+}
+
+class AppMain extends StatelessWidget {
+  const AppMain({
+    super.key,
+  });
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: createScaffold(context),
       routes: {
+        "blank_page": (context) => BlankPage(),
+        "blank_page2": (context) => BlankPage2(),
+        "blank_page3": (context) => BlankPage3(),
         "push": (context) => HomePushNotification(),
         "login_provider": (context) => LoginProvider(),
         "app_form_firebase": (context) => AppFormsFirebase(),
@@ -82,6 +111,9 @@ class AppBases extends StatelessWidget {
 
 createScaffold(ctx) {
   List examples = [
+    {"name": "Blank Page", "route": "blank_page"},
+    {"name": "Blank Page 2", "route": "blank_page2"},
+    {"name": "Blank Page 3", "route": "blank_page3"},
     {"name": "Dialog", "dialog": true},
     {"name": "Push", "route": "push"},
     {"name": "App Login Providers", "route": "login_provider"},
