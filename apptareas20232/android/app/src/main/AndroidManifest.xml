@@ -1,4 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
+   
+   
+    <uses-permission android:name="android.permission.CAMERA" />
+
     <application
         android:label="App Tareas"
         android:name="${applicationName}"

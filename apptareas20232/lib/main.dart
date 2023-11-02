@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:apptareas20232/agenda/main.dart';
 import 'package:apptareas20232/app_bottom_nav/view/AppBottom.dart';
+import 'package:apptareas20232/app_camera/views/AppCamera.dart';
 import 'package:apptareas20232/app_form_v2/AppFormsV2.dart';
 import 'package:apptareas20232/app_form_v3_firebase/AppFormsFirebase.dart';
 import 'package:apptareas20232/app_forms_v1/AppForms.dart';
@@ -38,8 +39,8 @@ Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
 }
 
 void main() async {
-  WidgetsFlutterBinding
-      .ensureInitialized(); // Requerido para usar funciones asíncronas en main.
+  // Requerido para usar funciones asíncronas en main.
+  WidgetsFlutterBinding.ensureInitialized();
 
   await FirebaseConfig();
 
@@ -52,7 +53,6 @@ void main() async {
 }
 
 Future<void> FirebaseConfig() async {
-  WidgetsFlutterBinding.ensureInitialized();
   FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
   FirebaseMessaging.onMessage.listen((RemoteMessage message) {
     try {
@@ -97,6 +97,7 @@ class AppMain extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: createScaffold(context),
       routes: {
+        "camera": (context) => AppCamera(),
         "blank_page": (context) => BlankPage(),
         "blank_page2": (context) => BlankPage2(),
         "blank_page3": (context) => BlankPage3(),
@@ -120,6 +121,7 @@ class AppMain extends StatelessWidget {
 
 createScaffold(ctx) {
   List examples = [
+    {"name": "App Uso Camara", "route": "camera"},
     {"name": "Blank Page", "route": "blank_page"},
     {"name": "Blank Page 2", "route": "blank_page2"},
     {"name": "Blank Page 3", "route": "blank_page3"},
