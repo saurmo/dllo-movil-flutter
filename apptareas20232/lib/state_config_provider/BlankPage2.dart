@@ -1,4 +1,4 @@
-import 'package:apptareas20232/config/StateProvider.dart';
+import 'package:apptareas20232/state_config_provider/StateProvider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

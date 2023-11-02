@@ -10,10 +10,11 @@ import 'package:apptareas20232/app_login_providers/views/LoginProviders.dart';
 import 'package:apptareas20232/app_scroll_infinity/AppScrollInfinity.dart';
 import 'package:apptareas20232/bases/IconsTextsImages.dart';
 import 'package:apptareas20232/bases/rowsColumnsContainers.dart';
-import 'package:apptareas20232/config/BlankPage.dart';
-import 'package:apptareas20232/config/BlankPage2.dart';
-import 'package:apptareas20232/config/BlankPage3.dart';
-import 'package:apptareas20232/config/StateProvider.dart';
+import 'package:apptareas20232/state_config_files/controller/FileAdmin.dart';
+import 'package:apptareas20232/state_config_provider/BlankPage.dart';
+import 'package:apptareas20232/state_config_provider/BlankPage2.dart';
+import 'package:apptareas20232/state_config_provider/BlankPage3.dart';
+import 'package:apptareas20232/state_config_provider/StateProvider.dart';
 import 'package:apptareas20232/ejemplo_lista_v2/views/home.dart';
 import 'package:apptareas20232/ejemplo_listas_v1/views/detailZone.dart';
 import 'package:apptareas20232/ejemplo_listas_v1/views/listZones.dart';
@@ -37,7 +38,15 @@ Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
 }
 
 void main() async {
+  WidgetsFlutterBinding
+      .ensureInitialized(); // Requerido para usar funciones asíncronas en main.
+
   await FirebaseConfig();
+
+  await guardarEnArchivo('{}');
+// Leer datos desde el archivo.
+  String datos = await leerDesdeArchivo();
+  print('Datos leídos desde el archivo: $datos');
 
   runApp(AppBases());
 }
