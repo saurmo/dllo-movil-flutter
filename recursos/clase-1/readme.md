@@ -14,3 +14,22 @@ Ir al link: `https://docs.flutter.dev/get-started/install`
 - Extensiones VScode:
     - `https://marketplace.visualstudio.com/items?itemName=Dart-Code.flutter`
 
+## MVC
+
+1. Modelo:
+
+    - Contiene los datos de la aplicación.
+    - Define la lógica de negocio.
+    - Se comunica con la capa de Vista a través de la capa de Controlador.
+
+2. Vista:
+
+    - Define la interfaz de usuario de la aplicación.
+    - Se compone de widgets.
+    - Se comunica con la capa de Controlador para recibir datos y eventos.
+
+3. Controlador:
+
+    - Actúa como intermediario entre la capa de Modelo y la capa de Vista.
+    - Maneja la interacción del usuario.
+    - Envía y recibe datos entre las capas de Modelo y Vista.
