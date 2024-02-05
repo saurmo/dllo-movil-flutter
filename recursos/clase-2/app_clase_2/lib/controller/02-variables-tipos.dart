@@ -19,8 +19,8 @@ void main() {
   Map<String, dynamic> images = {
     'tags': ['saturn'],
     'url': '//path/to/saturn.jpg',
-    'tag1': ['saturn'],
-    "tag2": null
+    'tag1': 12,
+    "tag2": { "name": "test" }
   };
 
   // VARIABLE IMPLICITAS
