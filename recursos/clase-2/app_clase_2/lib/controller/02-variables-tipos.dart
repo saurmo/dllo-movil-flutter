@@ -52,7 +52,8 @@ void main() {
 
   int valorSemestre = 50000000;
   print("UdeM $valorSemestre");
-  print("UdeM \$$valorSemestre");
+  print("Universidad de Medellin \"UdeM\" \$$valorSemestre");
+  print("Image $image['url']");
 
 
 }
