@@ -35,6 +35,11 @@ class Adivinanza {
     return adivinanzas[0];
   }
 
+  Future<Adivinanza> generarAdivinanzaHttp() async {
+    await Future.delayed(Duration(seconds: 2));
+    return generarAdivinanza();
+  }
+
   bool evaluarRespuesta(String respuestaUsuario) {
     return respuesta.toLowerCase() == respuestaUsuario.toLowerCase();
   }

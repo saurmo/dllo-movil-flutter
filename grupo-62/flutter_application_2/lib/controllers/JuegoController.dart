@@ -17,6 +17,12 @@ class JuegoController {
     return _adivinanza.pregunta;
   }
 
+  Future<String> obtenerPreguntaHttp() async {
+    generarAdivinanza();
+    Adivinanza adivinanza = await _adivinanza.generarAdivinanzaHttp();
+    return adivinanza.pregunta;
+  }
+
   String ingresarRespuesta() {
     return _adivinanza.ingresarRespuesta();
   }
