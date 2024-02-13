@@ -5,7 +5,7 @@ void main() {
   // Básicos
   String nombre = 'Carlos';
   int anio = 2023;
-  double diametro = 1.70;
+  double diametro = 1.7056;
   bool esPositivo = true;
 
 // Colecciones
@@ -20,7 +20,7 @@ void main() {
     'tags': ['saturn'],
     'url': '//path/to/saturn.jpg',
     'tag1': 12,
-    "tag2": { "name": "test" }
+    "tag2": {"name": "test"}
   };
 
   // VARIABLE IMPLICITAS
@@ -28,6 +28,10 @@ void main() {
   // name = 12; // No se puede cambiar el tipo de dato
   const year = 1977;
   // year = 200; // No se puede cambiar el valor de la variable
+
+  final year2;
+  year2 = 2;
+  // year2 = 3;
 
   dynamic diameter = 3.7;
   diameter = "TEST"; // Si se puede cambiar el valor y el ripo
@@ -50,9 +54,12 @@ void main() {
   String? testerName;
   print(testerName);
 
+// Imprimir double
+  print(diametro.toString());
+  print(diametro.toStringAsFixed(2));
+
   int valorSemestre = 50000000;
-  print("UdeM $valorSemestre");
+  print(" \"UdeM\" $valorSemestre");
+
   print("UdeM \$$valorSemestre");
-
-
 }
