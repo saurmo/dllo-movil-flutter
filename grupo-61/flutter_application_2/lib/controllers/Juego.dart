@@ -15,9 +15,10 @@ class JuegoController {
   }
 }
 
-void main(List<String> args) {
+void main(List<String> args) async {
   JuegoController controller = JuegoController();
-  print("Adivina: ${controller.obtenerPregunta()}");
+  String pregunta = await controller.obtenerPregunta();
+  print("Adivina: ${pregunta}");
   String respuesta = controller.adivinanza.pedirRespuesta();
   var esCorrecta = controller.adivinanza.evaluarRespuesta(respuesta: respuesta);
   if (esCorrecta) {

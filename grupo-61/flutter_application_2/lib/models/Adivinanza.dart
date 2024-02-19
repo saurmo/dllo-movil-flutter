@@ -44,12 +44,10 @@ class Adivinanza {
     // return adivinanzas[random];
   }
 
-  Future<Adivinanza> generarAdivinanzaHttp() async {
+  Future<Adivinanza> generarAdivinanzaHttp()  {
     Adivinanza adivinanza = generarAdivinanza();
-    print(adivinanza);
-    await Future.delayed(Duration(seconds: 3));
-    print("adivinanza");
-    return adivinanza;
+    return Future.delayed(Duration(seconds: 10), ()=> adivinanza);
+    
   }
 
   String pedirRespuesta() {
