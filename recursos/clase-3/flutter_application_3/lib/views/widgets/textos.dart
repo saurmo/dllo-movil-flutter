@@ -2,12 +2,10 @@ import 'package:flutter/material.dart';
 
 List<Widget> crearTextos() {
   return const [
-    // Mostrar un mensaje simple
+// Mostrar un mensaje simple
     Text('Hola mundo'),
-    SizedBox(height: 20),
 // Mostrar un texto en dos líneas
-    Text(
-        'Este es un texto largo que se extiende a varias líneas. Este es un texto largo que se extiende a varias líneas',
+    Text('Este es un texto largo que se extiende a varias líneas. Este es un texto largo que se extiende a varias líneas',
         maxLines: 2),
 
 // Mostrar un texto que se trunca con puntos suspensivos

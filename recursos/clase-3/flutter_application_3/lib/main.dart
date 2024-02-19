@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_3/views/layouts/container_2.dart';
+import 'package:flutter_application_3/views/layouts/scaffold_1.dart';
 import 'package:flutter_application_3/views/widgets/textos.dart';
 
 void main() {
@@ -11,12 +13,10 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      // Scaffold_1
+      // home: createScaffold(),
       home: Scaffold(
-        body:  Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-            children: crearTextos(),
-          
-        ),
+        body: createContainers(),
       ),
     );
   }
