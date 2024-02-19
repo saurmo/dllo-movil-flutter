@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_3/views/layouts/container_2.dart';
 import 'package:flutter_application_3/views/layouts/scaffold_1.dart';
+import 'package:flutter_application_3/views/widgets/buttons.dart';
+import 'package:flutter_application_3/views/widgets/imagenes.dart';
 import 'package:flutter_application_3/views/widgets/textos.dart';
 
 void main() {
@@ -16,7 +18,9 @@ class MainApp extends StatelessWidget {
       // Scaffold_1
       // home: createScaffold(),
       home: Scaffold(
-        body: createContainers(),
+        // body: crearTextos(),
+        body: crearImagenes(),
+        // body: createContainers(),
       ),
     );
   }
