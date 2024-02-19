@@ -5,5 +5,4 @@ void main(List<String> args) async {
   Map<String, dynamic> json = await jokes.obtenerJoke();
   jokes = Jokes.fromJson(json: json);
   print(jokes);
-
 }

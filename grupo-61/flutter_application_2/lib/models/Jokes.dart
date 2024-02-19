@@ -2,11 +2,6 @@ import "package:http/http.dart" as http;
 import 'dart:convert';
 
 class Jokes {
-  // - Crear un constructor nombrado que
-  // capture el Map<String,dynamic> y crear los
-  // atributos en la clase (como mínimo id, url, value)
-// - Crear un método para imprimir o sobrescribir el toString
-
   String id = "";
   String url = "";
   String value = "";
@@ -32,7 +27,7 @@ class Jokes {
 
   @override
   String toString() {
-   print("Id: $id =  Value:$value");
+    print("Id: $id =  Value:$value");
     return value;
   }
 }

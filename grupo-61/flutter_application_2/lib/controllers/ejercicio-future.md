@@ -1,8 +1,5 @@
-
 # Get Usuarios
-
 > https://reqres.in/api/users?page=2
-
 1. Crear la clase Usuario.
 2. Agregar los atributos [id, nombre, correo]
 3. Crear 2 constructores:
