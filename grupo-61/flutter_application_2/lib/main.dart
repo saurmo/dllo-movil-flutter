@@ -15,7 +15,7 @@ class MainApp extends StatelessWidget {
     return  MaterialApp(
       home: Scaffold(
         body: Center(
-          child: Text(controller.obtenerPregunta()),
+          child: Text("controller.obtenerPregunta()"),
         ),
       ),
     );

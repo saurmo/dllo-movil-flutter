@@ -1,4 +1,3 @@
-
 import 'package:flutter_application_2/models/Adivinanza.dart';
 
 class JuegoController {
@@ -8,7 +7,7 @@ class JuegoController {
     // adivinanza = adivinanza.generarAdivinanza();
   }
 
-  obtenerPregunta() async {
+  Future<String> obtenerPregunta() async {
     adivinanza = await adivinanza.generarAdivinanzaHttp();
     print(adivinanza);
     return adivinanza.pregunta;
