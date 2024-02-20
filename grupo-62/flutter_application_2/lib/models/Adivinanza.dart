@@ -36,7 +36,7 @@ class Adivinanza {
   }
 
   Future<Adivinanza> generarAdivinanzaHttp() async {
-    await Future.delayed(Duration(seconds: 2));
+    await Future.delayed(Duration(seconds: 4));
     return generarAdivinanza();
   }
 
