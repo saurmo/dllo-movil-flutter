@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 Widget crearTextos() {
-  return Column(children: [
+  return const Column(children: [
+    Text("Mostrar texto"),
 // Mostrar un mensaje simple
     Text('Hola mundo'),
 // Mostrar un texto en dos líneas

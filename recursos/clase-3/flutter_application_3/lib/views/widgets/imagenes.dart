@@ -3,15 +3,15 @@ import 'package:flutter/material.dart';
 Widget crearImagenes() {
   return Column(
     children: [
-      createImage(),
-      createImageColor(),
-      createImageNetwork(),
-      createImageProviderContainer(),
+      // createImage(),
+      // createImageColor(),
+      // createImageNetwork(),
+      // createImageProviderContainer(),
       Image.asset(
         'assets/images/casa.jpg',
-        height: 100,
-        width: 100,
-        fit: BoxFit.fitWidth,
+        height: 200,
+        width: 400,
+        fit: BoxFit.contain,
       ),
     ],
   );
@@ -20,35 +20,35 @@ Widget crearImagenes() {
 createImage() {
   return Image.asset(
     "assets/images/casa.jpg",
-    width: 100,
+    width: 150,
     alignment: Alignment.center,
-    height: 100,
+    height: 150,
   );
 }
 
 createImageColor() {
   return Image.asset(
     'assets/images/casa.jpg',
-    height: 100,
-    width: 100,
-    color: Colors.orange.withOpacity(0.5),
-    colorBlendMode: BlendMode.multiply,
+    height: 150,
+    width: 150,
+    color: Colors.lightBlue,
+    colorBlendMode: BlendMode.darken,
   );
 }
 
 createImageNetwork() {
   return Image.network(
     "https://cdn.pixabay.com/photo/2023/08/08/17/20/yosemite-8177850_1280.jpg",
-    width: 100,
+    width: 200,
     alignment: Alignment.center,
-    height: 100,
+    height: 200,
   );
 }
 
 createImageProviderContainer() {
   return Container(
-    width: 80,
-    height: 80,
+    width: 250,
+    height: 250,
     decoration: BoxDecoration(
       color: Colors.cyan,
       image: DecorationImage(
