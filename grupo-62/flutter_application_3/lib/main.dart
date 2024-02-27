@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_3/contenedores.dart';
+import 'package:flutter_application_3/icons.dart';
 import 'package:flutter_application_3/imagenes.dart';
+import 'package:flutter_application_3/rows_columns.dart';
 import 'package:flutter_application_3/textos.dart';
 
 void main() {
@@ -14,7 +16,7 @@ class MainApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        body: crearContenedores(),
+        body: Center(child: createIcons()),
       ),
     );
   }
