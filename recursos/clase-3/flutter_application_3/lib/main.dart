@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_3/views/layouts/container_2.dart';
+import 'package:flutter_application_3/views/layouts/rows_columns_3.dart';
 import 'package:flutter_application_3/views/layouts/scaffold_1.dart';
 import 'package:flutter_application_3/views/widgets/buttons.dart';
+import 'package:flutter_application_3/views/widgets/icons.dart';
 import 'package:flutter_application_3/views/widgets/imagenes.dart';
 import 'package:flutter_application_3/views/widgets/textos.dart';
 
@@ -19,8 +21,10 @@ class MainApp extends StatelessWidget {
       // home: createScaffold(),
       home: Scaffold(
         // body: crearTextos(),
-        body: crearImagenes(),
+        // body: crearImagenes(),
         // body: createContainers(),
+        // body: createRowColumn()
+        body: createIcons(),
       ),
     );
   }
