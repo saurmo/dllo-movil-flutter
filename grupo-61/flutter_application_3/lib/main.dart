@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_3/views/layouts/container_2.dart';
 import 'package:flutter_application_3/views/layouts/rows.dart';
+import 'package:flutter_application_3/views/layouts/scaffold_1.dart';
 import 'package:flutter_application_3/views/widgets/icons.dart';
 
 void main() {
@@ -13,9 +14,8 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return  MaterialApp(
-      home: Scaffold(
-        body: createIcons()
-      ),
+      debugShowCheckedModeBanner: false,
+      home:createScaffold(context),
     );
   }
 }
