@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_4/views/ButtonContador.dart';
+import 'package:flutter_application_4/views/PlaceForm.dart';
 import 'package:flutter_application_4/views/PlaceList.dart';
 import 'package:flutter_application_4/views/PlaceWidget.dart';
 
@@ -25,7 +26,15 @@ class _MainAppState extends State<MainApp> {
           title: Text(title),
           elevation: 3,
         ),
-        body: PlaceList (),
+        body: PlaceForm(),
+        // floatingActionButton: FloatingActionButton(
+        //   onPressed: (){
+        //     // Navigator.of(context).push(
+        //     //   MaterialPageRoute(builder: (_) => PlaceForm(),)
+        //     // );
+        //   },
+        //   child: Icon(Icons.add),
+        // ),
       ),
     );
   }
