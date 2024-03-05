@@ -7,12 +7,6 @@ createIcon() {
   );
 }
 
-createText(String text, {weight}) {
-  return Text(
-    text,
-    style: TextStyle(fontWeight: weight, color: Colors.blueAccent),
-  );
-}
 
 createIconButton() {
   return IconButton(
