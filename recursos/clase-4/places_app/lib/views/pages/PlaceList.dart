@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:places_app/controller/PlaceController.dart';
 import 'package:places_app/models/Place.dart';
+import 'package:places_app/views/pages/PlaceForm.dart';
 import 'package:places_app/views/pages/PlacePage.dart';
 import 'package:places_app/views/widgets/PlaceTitle.dart';
 
@@ -11,7 +12,13 @@ class PlaceList extends StatelessWidget {
       body: getBody(context),
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
-        onPressed: () {},
+        onPressed: () {
+          Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (context) => PlaceForm(),
+            ),
+          );
+        },
       ),
     );
   }
@@ -23,11 +30,14 @@ class PlaceList extends StatelessWidget {
       placesWidget.add(
         InkWell(
           onTap: () {
-            Navigator.of(context).push(MaterialPageRoute(
-              builder: (context) => PlacePage(
-                place: place,
+            // Navegar a otra página
+            Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (context) => PlacePage(
+                  place: place,
+                ),
               ),
-            ));
+            );
           },
           child: placeTitle(place),
         ),
