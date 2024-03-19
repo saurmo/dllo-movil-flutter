@@ -1,11 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_application_6/controllers/ContactController.dart';
+import 'package:flutter_application_6/controllers/ContactProvider.dart';
+import 'package:flutter_application_6/models/Contact.dart';
+import 'package:provider/provider.dart';
 
 class CreateContactPage extends StatelessWidget {
   // Atributos
   String title = "Crear contacto";
   final GlobalKey<FormState> _key = GlobalKey();
+
+  Contact contact = Contact.empty();
 
   @override
   Widget build(BuildContext context) {
@@ -13,11 +18,15 @@ class CreateContactPage extends StatelessWidget {
       appBar: AppBar(
         title: Text(title),
       ),
-      body: formContact(context),
+      body: Consumer<ContactProvider>(
+        builder: (_, contactProvider, child) {
+          return formContact(contactProvider);
+        },
+      ),
     );
   }
 
-  Form formContact(BuildContext context) {
+  Form formContact(ContactProvider provider) {
     return Form(
       key: _key,
       child: Padding(
@@ -25,6 +34,7 @@ class CreateContactPage extends StatelessWidget {
         child: Column(
           children: [
             TextFormField(
+              onChanged: (value) => contact.name = value,
               validator: validateField,
               decoration: const InputDecoration(
                 labelText: "Nombre",
@@ -32,6 +42,7 @@ class CreateContactPage extends StatelessWidget {
               ),
             ),
             TextFormField(
+              onChanged: (value) => contact.phone = value,
               validator: validateField,
               keyboardType: TextInputType.phone,
               decoration: const InputDecoration(
@@ -40,7 +51,7 @@ class CreateContactPage extends StatelessWidget {
               ),
             ),
             ElevatedButton(
-              onPressed: () => saveContact(_key),
+              onPressed: () => saveContact(_key, contact, provider),
               child: const Text("Guardar"),
             )
           ],

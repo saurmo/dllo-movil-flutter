@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_6/controllers/ContactProvider.dart';
 import 'package:flutter_application_6/models/Contact.dart';
 import 'package:flutter_application_6/views/CreateContactPage.dart';
+import 'package:provider/provider.dart';
 
 class ListContactPage extends StatelessWidget {
   String title = "Lista de contactos";
@@ -11,7 +13,11 @@ class ListContactPage extends StatelessWidget {
       appBar: AppBar(
         title: Text(title),
       ),
-      body: getListView(),
+      body: Consumer<ContactProvider>(
+        builder: (_, contactProvider, child) {
+          return getListView(contactProvider);
+        },
+      ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           // Navegar a la pagina de crear contacto
@@ -27,9 +33,9 @@ class ListContactPage extends StatelessWidget {
     // Text("CREAR UNA LISTA DENTRO DE UN SCAFFOLD");
   }
 
-  Widget getListView() {
+  Widget getListView(ContactProvider provider) {
     // Lista de contactos
-    List<Contact> contacts = [Contact(name: "Juan", phone: "3216549877")];
+    List<Contact> contacts = provider.contacts;
     return Padding(
       padding: const EdgeInsets.all(10),
       // Lista de los widgets de los contactos

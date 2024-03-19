@@ -1,8 +1,12 @@
 class Contact {
-  String name;
-  String phone;
+  late String name;
+  late String phone;
 
   Contact({required this.name, required this.phone});
+  Contact.empty() {
+    name = "";
+    phone = "";
+  }
 
   @override
   String toString() {
