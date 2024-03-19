@@ -13,4 +13,10 @@ class ContactProvider extends ChangeNotifier {
     // Notificar a los suscriptores de que hay un cambio
     notifyListeners();
   }
+
+  void deleteContact(Contact contact) {
+    _contacts.remove(contact);
+    // Notificar a los suscriptores de que hay un cambio
+    notifyListeners();
+  }
 }

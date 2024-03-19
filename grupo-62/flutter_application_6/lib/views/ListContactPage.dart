@@ -6,15 +6,20 @@ import 'package:provider/provider.dart';
 
 class ListContactPage extends StatelessWidget {
   String title = "Lista de contactos";
+  late ContactProvider provider;
 
   @override
   Widget build(BuildContext context) {
+    // OTRA FORMA DE ACCEDER AL PROVIDER
+    provider = Provider.of(context);
+
     return Scaffold(
       appBar: AppBar(
-        title: Text(title),
+        title: Text("$title ${provider.contacts.length}"),
       ),
       body: Consumer<ContactProvider>(
         builder: (_, contactProvider, child) {
+          provider = contactProvider;
           return getListView(contactProvider);
         },
       ),
@@ -73,7 +78,9 @@ class ListContactPage extends StatelessWidget {
             ],
           ),
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              provider.deleteContact(contact);
+            },
             icon: Icon(Icons.delete),
           )
         ],
