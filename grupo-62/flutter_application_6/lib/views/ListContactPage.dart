@@ -51,25 +51,33 @@ class ListContactPage extends StatelessWidget {
   }
 
   Widget contactWidget(Contact contact) {
-    return Row(
-      children: [
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              contact.name,
-              style: const TextStyle(fontWeight: FontWeight.w700),
-            ),
-            Text(
-              contact.phone,
-              style: const TextStyle(
-                fontWeight: FontWeight.w400,
-                fontStyle: FontStyle.italic,
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 5),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                contact.name,
+                style: const TextStyle(fontWeight: FontWeight.w700),
               ),
-            ),
-          ],
-        ),
-      ],
+              Text(
+                contact.phone,
+                style: const TextStyle(
+                  fontWeight: FontWeight.w400,
+                  fontStyle: FontStyle.italic,
+                ),
+              ),
+            ],
+          ),
+          IconButton(
+            onPressed: () {},
+            icon: Icon(Icons.delete),
+          )
+        ],
+      ),
     );
   }
 }
