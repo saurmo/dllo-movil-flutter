@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_application_6/controllers/ContactController.dart';
 
 class CreateContactPage extends StatelessWidget {
   // Atributos
@@ -24,20 +25,23 @@ class CreateContactPage extends StatelessWidget {
         child: Column(
           children: [
             TextFormField(
+              validator: validateField,
               decoration: const InputDecoration(
                 labelText: "Nombre",
                 hintText: "Ingrese el nombre",
               ),
             ),
             TextFormField(
+              validator: validateField,
+              keyboardType: TextInputType.phone,
               decoration: const InputDecoration(
                 labelText: "Celular",
                 hintText: "Ingrese el celular",
               ),
             ),
             ElevatedButton(
+              onPressed: () => saveContact(_key),
               child: const Text("Guardar"),
-              onPressed: () {},
             )
           ],
         ),
